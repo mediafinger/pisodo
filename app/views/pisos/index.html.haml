@@ -1,0 +1,109 @@
+%h1 Listing pisos
+
+%table
+  %tr
+    %th Name
+    %th Found
+    %th Url
+    %th Price
+    %th Bond
+    %th Broker fee
+    %th Square meter
+    %th Number of bedrooms
+    %th Size of living room
+    %th Size of largest bedroom
+    %th Type of kitchen
+    %th Size of balcony
+    %th Balcony to patio
+    %th Bedroom to patio
+    %th Floor
+    %th Elevator
+    %th Type of street
+    %th Number of bathrooms
+    %th Bathtub
+    %th Suited to share
+    %th Distance to metro
+    %th Picture one
+    %th Picture two
+    %th Maps
+    %th Space for bike
+    %th Sunny
+    %th Quiet
+    %th Closets
+    %th Washing machine
+    %th Dishwasher
+    %th Equipped kitchen
+    %th Furnished
+    %th Comments
+    %th Status
+    %th Fon
+    %th Contact
+    %th First noticed
+    %th Visited
+    %th Heating
+    %th Air conditioning
+    %th Wooden floor
+    %th Double glazing
+    %th Area
+    %th Distance to work
+    %th Distance to beach
+    %th Distance to park
+    %th
+    %th
+    %th
+
+  - @pisos.each do |piso|
+    %tr
+      %td= piso.name
+      %td= piso.found
+      %td= piso.url
+      %td= piso.price
+      %td= piso.bond
+      %td= piso.broker_fee
+      %td= piso.square_meter
+      %td= piso.number_of_bedrooms
+      %td= piso.size_of_living_room
+      %td= piso.size_of_largest_bedroom
+      %td= piso.type_of_kitchen
+      %td= piso.size_of_balcony
+      %td= piso.balcony_to_patio
+      %td= piso.bedroom_to_patio
+      %td= piso.floor
+      %td= piso.elevator
+      %td= piso.type_of_street
+      %td= piso.number_of_bathrooms
+      %td= piso.bathtub
+      %td= piso.suited_to_share
+      %td= piso.distance_to_metro
+      %td= piso.picture_one
+      %td= piso.picture_two
+      %td= piso.maps
+      %td= piso.space_for_bike
+      %td= piso.sunny
+      %td= piso.quiet
+      %td= piso.closets
+      %td= piso.washing_machine
+      %td= piso.dishwasher
+      %td= piso.equipped_kitchen
+      %td= piso.furnished
+      %td= piso.comments
+      %td= piso.status
+      %td= piso.fon
+      %td= piso.contact
+      %td= piso.first_noticed
+      %td= piso.visited
+      %td= piso.heating
+      %td= piso.air_conditioning
+      %td= piso.wooden_floor
+      %td= piso.double_glazing
+      %td= piso.area
+      %td= piso.distance_to_work
+      %td= piso.distance_to_beach
+      %td= piso.distance_to_park
+      %td= link_to 'Show', piso
+      %td= link_to 'Edit', edit_piso_path(piso)
+      %td= link_to 'Destroy', piso, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Piso', new_piso_path
