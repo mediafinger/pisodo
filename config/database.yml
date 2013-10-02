@@ -1,8 +1,8 @@
 postgresql: &postgresql
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV['PISO_DB_USERNAME_POSTGRES'] || 'andy' %>
-  password: <%= ENV['PISO_DB_PASSWORD_POSTGRES'] || '' %>
+  username: <%= ENV['PISODO_DB_USERNAME_POSTGRES'] || 'andy' %>
+  password: <%= ENV['PISODO_DB_PASSWORD_POSTGRES'] || '' %>
   min_messages: ERROR
 
 defaults: &defaults
@@ -12,15 +12,15 @@ defaults: &defaults
   <<: *postgresql
 
 development:
-  database: piso_development
+  database: pisodo_development
   <<: *defaults
 
 test:
-  database: piso_test
+  database: pisodo_test
   <<: *defaults
 
 production:
-  database: piso_production
+  database: pisodo_production
   <<: *defaults
 
 

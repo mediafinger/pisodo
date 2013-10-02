@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Piso::Application.load_tasks
+Pisodo::Application.load_tasks
