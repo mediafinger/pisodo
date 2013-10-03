@@ -5,144 +5,164 @@
       %ul
         - @piso.errors.full_messages.each do |msg|
           %li= msg
+  .piso-form
+    .field-group
+      .field
+        = f.label :name
+        = f.text_field :name
+      .field
+        = f.label :status
+        = f.text_field :status
+      .field
+        = f.label :price
+        = f.number_field :price
+      .field
+        = f.label :square_meter
+        = f.number_field :square_meter
+    .field-group
+      .field
+        = f.label :first_noticed
+        = f.date_select :first_noticed
+      .field
+        = f.label :url
+        = f.text_field :url
+      .field
+        = f.label :found
+        = f.text_field :found
+    .field-group
+      .field
+        = f.label :area
+        = f.text_field :area
+      .field
+        = f.label :maps
+        = f.text_field :maps
+      .field
+        = f.label :type_of_street
+        = f.text_field :type_of_street
+      .field
+        = f.label :floor
+        = f.number_field :floor
+    .field-group
+      .field
+        = f.label :bond
+        = f.number_field :bond
+      .field
+        = f.label :broker_fee
+        = f.number_field :broker_fee
+      .field
+        = f.label :size_of_living_room
+        = f.number_field :size_of_living_room
+      .field
+        = f.label :furnished
+        = f.check_box :furnished
+    .field-group
+      .field
+        = f.label :number_of_bedrooms
+        = f.number_field :number_of_bedrooms
+      .field
+        = f.label :size_of_largest_bedroom
+        = f.number_field :size_of_largest_bedroom
+      .field
+        = f.label :bedroom_to_patio
+        = f.check_box :bedroom_to_patio
+      .field
+        = f.label :suited_to_share
+        = f.check_box :suited_to_share
+    .field-group
+      .field
+        = f.label :number_of_bathrooms
+        = f.number_field :number_of_bathrooms
+      .field
+        = f.label :bathtub
+        = f.check_box :bathtub
+      .field
+        = f.label :size_of_balcony
+        = f.number_field :size_of_balcony
+      .field
+        = f.label :balcony_to_patio
+        = f.check_box :balcony_to_patio
+    .field-group
+      .field
+        = f.label :type_of_kitchen
+        = f.text_field :type_of_kitchen
+      .field
+        = f.label :equipped_kitchen
+        = f.check_box :equipped_kitchen
+      .field
+        = f.label :washing_machine
+        = f.check_box :washing_machine
+      .field
+        = f.label :dishwasher
+        = f.check_box :dishwasher
+    .field-group
+      .field
+        = f.label :quiet
+        = f.check_box :quiet
+      .field
+        = f.label :heating
+        = f.check_box :heating
+      .field
+        = f.label :air_conditioning
+        = f.check_box :air_conditioning
+      .field
+        = f.label :double_glazing
+        = f.check_box :double_glazing
+      .field
+        = f.label :sunny
+        = f.check_box :sunny
+    .field-group
+      .field
+        = f.label :closets
+        = f.check_box :closets
+      .field
+        = f.label :wooden_floor
+        = f.check_box :wooden_floor
+      .field
+        = f.label :elevator
+        = f.check_box :elevator
+      .field
+        = f.label :space_for_bike
+        = f.check_box :space_for_bike
+    .field-group
+      .field
+        = f.label :comments
+        = f.text_area :comments
+    .field-group
+      .field
+        = f.label :distance_to_metro
+        = f.number_field :distance_to_metro
+      .field
+        = f.label :distance_to_work
+        = f.number_field :distance_to_work
+      .field
+        = f.label :distance_to_beach
+        = f.number_field :distance_to_beach
+      .field
+        = f.label :distance_to_park
+        = f.number_field :distance_to_park
+    .field-group
+      .field
+        = f.label :contact
+        = f.text_field :contact
+      .field
+        = f.label :fon
+        = f.text_field :fon
+      .field
+        = f.label :visited
+        = f.date_select :visited
+    .field-group
+      .field
+        = f.label :picture_one
+        = f.text_field :picture_one
+        - if @piso.picture_one
+          = image_tag @piso.picture_one, size: "240x160"
+    .field-group
+      .field
+        = f.label :picture_two
+        = f.text_field :picture_two
+        - if @piso.picture_two
+          = image_tag @piso.picture_two, size: "240x160"
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :found
-    = f.text_field :found
-  .field
-    = f.label :url
-    = f.text_field :url
-  .field
-    = f.label :price
-    = f.number_field :price
-  .field
-    = f.label :bond
-    = f.number_field :bond
-  .field
-    = f.label :broker_fee
-    = f.number_field :broker_fee
-  .field
-    = f.label :square_meter
-    = f.number_field :square_meter
-  .field
-    = f.label :number_of_bedrooms
-    = f.number_field :number_of_bedrooms
-  .field
-    = f.label :size_of_living_room
-    = f.number_field :size_of_living_room
-  .field
-    = f.label :size_of_largest_bedroom
-    = f.number_field :size_of_largest_bedroom
-  .field
-    = f.label :type_of_kitchen
-    = f.text_field :type_of_kitchen
-  .field
-    = f.label :size_of_balcony
-    = f.number_field :size_of_balcony
-  .field
-    = f.label :balcony_to_patio
-    = f.check_box :balcony_to_patio
-  .field
-    = f.label :bedroom_to_patio
-    = f.check_box :bedroom_to_patio
-  .field
-    = f.label :floor
-    = f.number_field :floor
-  .field
-    = f.label :elevator
-    = f.check_box :elevator
-  .field
-    = f.label :type_of_street
-    = f.text_field :type_of_street
-  .field
-    = f.label :number_of_bathrooms
-    = f.number_field :number_of_bathrooms
-  .field
-    = f.label :bathtub
-    = f.check_box :bathtub
-  .field
-    = f.label :suited_to_share
-    = f.check_box :suited_to_share
-  .field
-    = f.label :distance_to_metro
-    = f.number_field :distance_to_metro
-  .field
-    = f.label :picture_one
-    = f.text_field :picture_one
-  .field
-    = f.label :picture_two
-    = f.text_field :picture_two
-  .field
-    = f.label :maps
-    = f.text_field :maps
-  .field
-    = f.label :space_for_bike
-    = f.check_box :space_for_bike
-  .field
-    = f.label :sunny
-    = f.check_box :sunny
-  .field
-    = f.label :quiet
-    = f.check_box :quiet
-  .field
-    = f.label :closets
-    = f.check_box :closets
-  .field
-    = f.label :washing_machine
-    = f.check_box :washing_machine
-  .field
-    = f.label :dishwasher
-    = f.check_box :dishwasher
-  .field
-    = f.label :equipped_kitchen
-    = f.check_box :equipped_kitchen
-  .field
-    = f.label :furnished
-    = f.check_box :furnished
-  .field
-    = f.label :comments
-    = f.text_area :comments
-  .field
-    = f.label :status
-    = f.text_field :status
-  .field
-    = f.label :fon
-    = f.text_field :fon
-  .field
-    = f.label :contact
-    = f.text_field :contact
-  .field
-    = f.label :first_noticed
-    = f.date_select :first_noticed
-  .field
-    = f.label :visited
-    = f.date_select :visited
-  .field
-    = f.label :heating
-    = f.check_box :heating
-  .field
-    = f.label :air_conditioning
-    = f.check_box :air_conditioning
-  .field
-    = f.label :wooden_floor
-    = f.check_box :wooden_floor
-  .field
-    = f.label :double_glazing
-    = f.check_box :double_glazing
-  .field
-    = f.label :area
-    = f.text_field :area
-  .field
-    = f.label :distance_to_work
-    = f.number_field :distance_to_work
-  .field
-    = f.label :distance_to_beach
-    = f.number_field :distance_to_beach
-  .field
-    = f.label :distance_to_park
-    = f.number_field :distance_to_park
-  .actions
-    = f.submit 'Save'
+    .bottom-group
+      .actions
+        = f.submit 'Save'

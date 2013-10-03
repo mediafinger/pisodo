@@ -33,7 +33,7 @@ class PisosController < ApplicationController
   # PATCH/PUT /pisos/1
   def update
     if @piso.update(piso_params)
-      redirect_to @piso, notice: 'Piso was successfully updated.'
+      redirect_to "edit", notice: 'Piso was successfully updated.'
     else
       render action: 'edit'
     end

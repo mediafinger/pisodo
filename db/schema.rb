@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20131002224706) do
   create_table "pisos", force: true do |t|
     t.string   "name"
     t.string   "found"
-    t.string   "url"
+    t.text     "url"
     t.date     "first_noticed"
     t.string   "area"
-    t.string   "maps"
+    t.text     "maps"
     t.integer  "floor"
     t.string   "status"
     t.integer  "price"

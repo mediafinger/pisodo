@@ -1,3 +1,54 @@
 // Place all the styles related to the pisos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.piso-form {
+  max-width: 1150px;
+}
+
+input[type=text] {
+  width: 200px;
+}
+
+input[type=number] {
+  text-align: right;
+  width: 50px;
+}
+
+input {
+  float: right;
+}
+
+select {
+  float: right;
+}
+
+textarea {
+  float: right;
+  height: 335px;
+  width: 320px;
+}
+
+.field-group {
+  border: 2px solid black;
+  float:left;
+  min-height: 140px;
+  margin: 5px;
+  padding: 5px;
+  width: 330px;
+}
+
+.field {
+  width: 325px;
+}
+
+.label  {
+  text-align: left;
+}
+
+.bottom-group {
+  clear: both;
+  padding-top: 30px;
+  text-align: right;
+  width: 1040px;
+}
