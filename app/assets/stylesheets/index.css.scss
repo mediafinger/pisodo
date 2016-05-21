@@ -1,0 +1,58 @@
+// Place all the styles related to the pisos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.piso_listing {
+  th {
+    background-color: #ffffff;
+    text-align: left;
+
+    ul {
+      padding-left: 1em;
+    }
+  }
+
+  td:nth-of-type(2n) { background-color: #eef0ff; }
+
+  tr:nth-of-type(1n) { background-color: #ffffff; }
+  tr:nth-of-type(2n) { background-color: #f0faff; }
+
+
+  .num {
+    text-align: right;
+  }
+
+  .euro {
+    text-align: right;
+
+    p {
+      &:after {
+        content: " €";
+      }
+    }
+  }
+
+  .minutes {
+    text-align: right;
+
+    p {
+      &:after {
+        content: " min";
+      }
+    }
+  }
+
+  .sqm {
+    text-align: right;
+
+    p {
+      &:after {
+        content: " m²";
+      }
+    }
+  }
+
+  .thumb {
+    width: 250px;
+  }
+}

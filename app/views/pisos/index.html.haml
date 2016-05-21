@@ -1,108 +1,123 @@
 %h1 Listing pisos
 
-%table
+%table.piso_listing
   %tr
-    %th Name
-    %th Found
-    %th Url
-    %th Price
-    %th Bond
-    %th Broker fee
-    %th Square meter
-    %th Number of bedrooms
-    %th Size of living room
-    %th Size of largest bedroom
-    %th Type of kitchen
-    %th Size of balcony
-    %th Balcony to patio
-    %th Bedroom to patio
-    %th Floor
-    %th Elevator
-    %th Type of street
-    %th Number of bathrooms
-    %th Bathtub
-    %th Suited to share
-    %th Distance to metro
-    %th Picture one
-    %th Picture two
-    %th Maps
-    %th Space for bike
-    %th Sunny
-    %th Quiet
-    %th Closets
-    %th Washing machine
-    %th Dishwasher
-    %th Equipped kitchen
-    %th Furnished
-    %th Comments
+    %th Name / URL
+    %th
+      Price
+      %ul
+        %li Rent
+        %li Bond
+        %li Broker
+    %th
+      &num; of bedrooms
+    %th
+      Sqm
+      %ul
+        %li flat
+        %li living room
+        %li largest bedroom
+    %th Balcony
+    %th Level
+    %th Bathrooms
+    %th Quality
+    %th
+      Distance to
+      %ul
+        %li metro
+        %li work
+        %li beach
+        %li park
+    %th Pictures
+    %th Facilities
+    %th Extras
+    %th Contact / Comments
     %th Status
-    %th Fon
-    %th Contact
-    %th First noticed
-    %th Visited
-    %th Heating
-    %th Air conditioning
-    %th Wooden floor
-    %th Double glazing
-    %th Area
-    %th Distance to work
-    %th Distance to beach
-    %th Distance to park
     %th
     %th
     %th
 
   - @pisos.each do |piso|
     %tr
-      %td= piso.name
-      %td= piso.found
-      %td= piso.url
-      %td= piso.price
-      %td= piso.bond
-      %td= piso.broker_fee
-      %td= piso.square_meter
-      %td= piso.number_of_bedrooms
-      %td= piso.size_of_living_room
-      %td= piso.size_of_largest_bedroom
-      %td= piso.type_of_kitchen
-      %td= piso.size_of_balcony
-      %td= piso.balcony_to_patio
-      %td= piso.bedroom_to_patio
-      %td= piso.floor
-      %td= piso.elevator
-      %td= piso.type_of_street
-      %td= piso.number_of_bathrooms
-      %td= piso.bathtub
-      %td= piso.suited_to_share
-      %td= piso.distance_to_metro
-      %td= piso.picture_one
-      %td= piso.picture_two
-      %td= piso.maps
-      %td= piso.space_for_bike
-      %td= piso.sunny
-      %td= piso.quiet
-      %td= piso.closets
-      %td= piso.washing_machine
-      %td= piso.dishwasher
-      %td= piso.equipped_kitchen
-      %td= piso.furnished
-      %td= piso.comments
+
+      %td
+        %p= piso.name
+        %p= link_to piso.area, piso.maps, target: :blank
+        %p
+          Found on:
+          = piso.found
+        %p= link_to piso.url, piso.url, target: :blank
+        %p= "Noticed: #{piso.first_noticed}"
+        %p= "Visited: #{piso.visited}"
+
+      %td.euro
+        %p= piso.price
+        %p= piso.bond
+        %p= piso.broker_fee
+
+      %td.num
+        = piso.number_of_bedrooms
+
+      %td.sqm
+        %p= piso.square_meter
+        %p= piso.size_of_living_room
+        %p= piso.size_of_largest_bedroom
+
+      %td.num
+        %p= "#{piso.size_of_balcony} m²";
+        %p= piso.balcony_to_patio ? "to patio" : "&nbsp;".html_safe
+
+      %td.num
+        %p= piso.floor
+        %p= piso.elevator ? "elevator" : "stairs"
+
+      %td.num
+        %p= piso.number_of_bathrooms
+        %p= piso.bathtub ? "bathtub" : "shower"
+
+      %td
+        %p= "Quiet area" if piso.quiet
+        %p= "Bedroom to patio" if piso.bedroom_to_patio
+        %p= "Sunny piso" if piso.sunny
+        %p= "#{piso.type_of_kitchen} kitchen"
+        %p= "#{piso.type_of_street} street"
+
+      %td.minutes
+        %p= piso.distance_to_metro
+        %p= piso.distance_to_work
+        %p= piso.distance_to_beach
+        %p= piso.distance_to_park
+
+      %td.image
+        %p= image_tag piso.picture_one
+        %p= image_tag piso.picture_two
+
+      %td
+        %p= piso.furnished ? "Furnished" : "Unfurnished"
+        %p= "Equipped kitchen" if piso.equipped_kitchen
+        %p= "Dishwasher" if piso.dishwasher
+        %p= "Washing machine" if piso.washing_machine
+        %p= "Has closets" if piso.closets
+        %p= piso.space_for_bike ? "Space for bike" : "No space for bike"
+
+      %td
+        %p= piso.heating ? "Heating" : "No heating"
+        %p= piso.air_conditioning ? "AC" : "No AC"
+        %p= piso.suited_to_share ? "Suited to share" : "Not suited to share"
+        %p= "Double glazing" if piso.double_glazing
+        %p= "Wooden floor" if piso.wooden_floor
+
+      %td
+        %p= piso.contact
+        %p= piso.fon
+        %p= piso.comments
+
       %td= piso.status
-      %td= piso.fon
-      %td= piso.contact
-      %td= piso.first_noticed
-      %td= piso.visited
-      %td= piso.heating
-      %td= piso.air_conditioning
-      %td= piso.wooden_floor
-      %td= piso.double_glazing
-      %td= piso.area
-      %td= piso.distance_to_work
-      %td= piso.distance_to_beach
-      %td= piso.distance_to_park
-      %td= link_to 'Show', piso
-      %td= link_to 'Edit', edit_piso_path(piso)
-      %td= link_to 'Destroy', piso, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+      %td
+        %p= link_to 'Show', piso
+        %p= link_to 'Edit', edit_piso_path(piso)
+        %p= link_to 'Destroy', piso, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
