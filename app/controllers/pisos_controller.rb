@@ -3,7 +3,7 @@ class PisosController < ApplicationController
 
   # GET /pisos
   def index
-    @pisos = Piso.all
+    @pisos = Piso.limit(100).order(:created_at)
   end
 
   # GET /pisos/1
@@ -46,13 +46,62 @@ class PisosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_piso
-      @piso = Piso.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def piso_params
-      params.require(:piso).permit(:name, :found, :url, :price, :bond, :broker_fee, :square_meter, :number_of_bedrooms, :size_of_living_room, :size_of_largest_bedroom, :type_of_kitchen, :size_of_balcony, :balcony_to_patio, :bedroom_to_patio, :floor, :elevator, :type_of_street, :number_of_bathrooms, :bathtub, :suited_to_share, :distance_to_metro, :picture_one, :picture_two, :maps, :space_for_bike, :sunny, :quiet, :closets, :washing_machine, :dishwasher, :equipped_kitchen, :furnished, :comments, :status, :fon, :contact, :first_noticed, :visited, :heating, :air_conditioning, :wooden_floor, :double_glazing, :area, :distance_to_work, :distance_to_beach, :distance_to_park)
-    end
+  def set_piso
+    @piso = Piso.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def piso_params
+    params.require(:piso).permit(
+      :air_conditioning,
+      :area,
+      :balcony_to_patio,
+      :bathtub,
+      :bedroom_to_patio,
+      :bond,
+      :broker_fee,
+      :closets,
+      :comments,
+      :contact,
+      :dishwasher,
+      :distance_to_beach,
+      :distance_to_metro,
+      :distance_to_park,
+      :distance_to_work,
+      :double_glazing,
+      :elevator,
+      :equipped_kitchen,
+      :floor,
+      :fon,
+      :found,
+      :furnished,
+      :heating,
+      :maps,
+      :name,
+      :noticed_at,
+      :number_of_bathrooms,
+      :number_of_bedrooms,
+      :pet_friendly,
+      :picture_one,
+      :picture_two,
+      :price,
+      :quiet,
+      :size_of_balcony,
+      :size_of_largest_bedroom,
+      :size_of_living_room,
+      :space_for_bike,
+      :square_meter,
+      :status,
+      :suited_to_share,
+      :sunny,
+      :type_of_kitchen,
+      :type_of_street,
+      :url,
+      :visited,
+      :vistited_at,
+      :washing_machine,
+      :wooden_floor
+    )
+  end
 end

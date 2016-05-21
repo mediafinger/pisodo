@@ -21,8 +21,8 @@
         = f.number_field :square_meter
     .field-group
       .field
-        = f.label :first_noticed
-        = f.date_select :first_noticed
+        = f.label :noticed_at
+        = f.date_select :noticed_at
       .field
         = f.label :url
         = f.text_field :url
@@ -148,8 +148,14 @@
         = f.label :fon
         = f.text_field :fon
       .field
-        = f.label :visited
-        = f.date_select :visited
+        = f.label :visited_false, "not visited"
+        = f.radio_button :visited, false
+      .field
+        = f.label :visited_true, "visited"
+        = f.radio_button :visited, true
+      .field
+        = f.label :visited_at
+        = f.date_select :visited_at
     .field-group
       .field
         = f.label :picture_one

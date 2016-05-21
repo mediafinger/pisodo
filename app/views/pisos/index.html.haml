@@ -47,8 +47,8 @@
           Found on:
           = piso.found
         %p= link_to piso.url, piso.url, target: :blank
-        %p= "Noticed: #{piso.first_noticed}"
-        %p= "Visited: #{piso.visited}"
+        %p= "Noticed: #{piso.noticed_at}"
+        %p= "Visited: #{piso.visited_at}" if piso.visited
 
       %td.euro
         %p= piso.price
@@ -88,9 +88,9 @@
         %p= piso.distance_to_beach
         %p= piso.distance_to_park
 
-      %td.image
-        %p= image_tag piso.picture_one
-        %p= image_tag piso.picture_two
+      %td
+        %p= image_tag piso.picture_one, class: :thumb
+        %p= image_tag piso.picture_two, class: :thumb
 
       %td
         %p= piso.furnished ? "Furnished" : "Unfurnished"
@@ -98,14 +98,15 @@
         %p= "Dishwasher" if piso.dishwasher
         %p= "Washing machine" if piso.washing_machine
         %p= "Has closets" if piso.closets
-        %p= piso.space_for_bike ? "Space for bike" : "No space for bike"
+        %p= "Heating" if piso.heating
+        %p= "AC" if piso.air_conditioning
 
       %td
-        %p= piso.heating ? "Heating" : "No heating"
-        %p= piso.air_conditioning ? "AC" : "No AC"
-        %p= piso.suited_to_share ? "Suited to share" : "Not suited to share"
+        %p= "Suited to share" if piso.suited_to_share
+        %p= "Pet friendly" if piso.pet_friendly
         %p= "Double glazing" if piso.double_glazing
         %p= "Wooden floor" if piso.wooden_floor
+        %p= "Space for bike" if piso.space_for_bike
 
       %td
         %p= piso.contact

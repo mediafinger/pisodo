@@ -110,10 +110,10 @@
   = @piso.contact
 %p
   %b First noticed:
-  = @piso.first_noticed
+  = @piso.noticed_at
 %p
   %b Visited:
-  = @piso.visited
+  = @piso.visited_at if @piso.visited
 %p
   %b Heating:
   = @piso.heating
@@ -138,6 +138,9 @@
 %p
   %b Distance to park:
   = @piso.distance_to_park
+%p
+  %b Pet friendly:
+  = @piso.pet_friendly
 
 = link_to 'Edit', edit_piso_path(@piso)
 \|

@@ -11,17 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002224706) do
+ActiveRecord::Schema.define(version: 20160521164115) do
 
-  create_table "pisos", force: true do |t|
-    t.string   "name"
-    t.string   "found"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "pisos", force: :cascade do |t|
+    t.string   "name",                    limit: 255
+    t.string   "found",                   limit: 255
     t.text     "url"
-    t.date     "first_noticed"
-    t.string   "area"
+    t.date     "noticed_at"
+    t.string   "area",                    limit: 255
     t.text     "maps"
     t.integer  "floor"
-    t.string   "status"
+    t.string   "status",                  limit: 255
     t.integer  "price"
     t.integer  "bond"
     t.integer  "broker_fee"
@@ -36,11 +39,11 @@ ActiveRecord::Schema.define(version: 20131002224706) do
     t.integer  "size_of_living_room"
     t.integer  "size_of_balcony"
     t.boolean  "balcony_to_patio"
-    t.string   "type_of_kitchen"
+    t.string   "type_of_kitchen",         limit: 255
     t.boolean  "equipped_kitchen"
     t.boolean  "washing_machine"
     t.boolean  "dishwasher"
-    t.string   "type_of_street"
+    t.string   "type_of_street",          limit: 255
     t.boolean  "quiet"
     t.boolean  "heating"
     t.boolean  "air_conditioning"
@@ -54,14 +57,16 @@ ActiveRecord::Schema.define(version: 20131002224706) do
     t.integer  "distance_to_work"
     t.integer  "distance_to_beach"
     t.integer  "distance_to_park"
-    t.string   "picture_one"
-    t.string   "picture_two"
-    t.string   "contact"
-    t.string   "fon"
-    t.date     "visited"
+    t.text     "picture_one"
+    t.text     "picture_two"
+    t.string   "contact",                 limit: 255
+    t.string   "fon",                     limit: 255
+    t.date     "visited_at"
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "pet_friendly"
+    t.boolean  "visited"
   end
 
 end
